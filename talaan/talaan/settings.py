@@ -119,3 +119,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # haven't made python manage.py collectstatic yet
+
+# Added for messages popup (source: simpleisbetterthancomplex)
+MESSAGE_TAGS = {
+    # messages.DEBUG: 'alert-info',
+    # messages.INFO: 'alert-info',
+    # messages.SUCCESS: 'alert-success',
+    # messages.WARNING: 'alert-warning',
+    # messages.ERROR: 'alert-danger',
+}
