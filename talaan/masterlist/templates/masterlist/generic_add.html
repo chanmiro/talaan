@@ -1,0 +1,35 @@
+{% extends 'masterlist/home.html' %}
+
+{% block content %}
+    <br>
+    <h3 align="center"><em>{% block blob %}Some Label Here{% endblock %}</em></h3>
+    <br>
+    <div align="center">
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table-sm">
+                {{form.as_table}}
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </table>
+            <button type="submit" name="Save" class="btn btn-outline-primary">Submit</button>
+            <a class="btn btn-outline-danger" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+        </form>
+    </div>
+
+{% endblock%}
