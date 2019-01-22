@@ -35,7 +35,8 @@
         left: 0;
         right: 0;
         margin: auto;
-        font-family: monospace;
+        font-family: "Lucida Console", "monospace";
+        font-size: 11pt;
       }
     </style>
 
@@ -72,11 +73,10 @@
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Records
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Accountable Asset</a>
+                        <ul class="dropdown-menu multi-level" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="{% url 'ml_home' %}">Master Lists</a>
                                 <a class="dropdown-item" href="{% url 'about' %}">About</a>
-                        </div>
+                        </ul>
                     </li>{% block navigation %}{% endblock %}
                 </ul>
             </div>

@@ -1,1 +1,142 @@
 {% extends 'base.html' %}
+
+{% block navigation %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Master List
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Items List</a>
+                            <a class="dropdown-item" href="#">Types List</a>
+                            <a class="dropdown-item" href="#">UOM List</a>
+                            <a class="dropdown-item" href="#">Organization</a>
+                            <a class="dropdown-item" href="#">Department</a>
+                        </ul>
+                    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="row row-no-gutters">
+        <div class="col-lg-6" style="background-color:#80ff80">
+            <h5><strong>Companies - <em>Last 5 Records</em></strong></h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Company</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organization in organizations %}
+                    <tr>
+                        <td>{{ organization.code }}</td>
+                        <td>{{ organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6" style="background-color:#ff80ff">
+            <h5>Departments - Last 5 Records</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Department</td>
+                        <td>Company</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for department in departments %}
+                    <tr>
+                        <td>{{ department.name }}</td>
+                        <td>{{ department.organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row row-no-gutters">
+        <div class="col-lg-6" style="background-color:#80ffff">
+            <h5>Companies - Last 5 Records</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organization in organizations %}
+                    <tr>
+                        <td>{{ organization.code }}</td>
+                        <td>{{ organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6" style="background-color:#ffB0B0">
+            <h5>Companies - Last 5 Records</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organization in organizations %}
+                    <tr>
+                        <td>{{ organization.code }}</td>
+                        <td>{{ organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row row-no-gutters">
+        <div class="col-lg-6" style="background-color:#cccccc">
+            <h5>Companies - Last 5 Records</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organization in organizations %}
+                    <tr>
+                        <td>{{ organization.code }}</td>
+                        <td>{{ organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-6" style="background-color:#a080FF">
+            <h5>Companies - Last 5 Records</h5>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <td>Code</td>
+                        <td>Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for organization in organizations %}
+                    <tr>
+                        <td>{{ organization.code }}</td>
+                        <td>{{ organization.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}
