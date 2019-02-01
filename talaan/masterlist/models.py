@@ -1,6 +1,8 @@
 import datetime
 from django.db import models
+
 # Create your models here.
+
 
 class BaseModel(models.Model):
 
@@ -25,7 +27,9 @@ class Organization(BaseModel):
 class Department(BaseModel):
 
     name = models.CharField(max_length=50)
-    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, related_name='organizations')
+    organization = models.ForeignKey(
+        Organization, on_delete=models.CASCADE, related_name="organizations"
+    )
 
     objects = models.Manager()
 
@@ -35,17 +39,19 @@ class Department(BaseModel):
 
 class Employee(BaseModel):
 
-    id = models.PositiveIntegerField(verbose_name='ID Number', primary_key=True)
+    id = models.PositiveIntegerField(verbose_name="ID Number", primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='departments')
+    department = models.ForeignKey(
+        Department, on_delete=models.CASCADE, related_name="departments"
+    )
     is_active = models.BooleanField(default=True)
     date_deactivated = models.DateTimeField(null=True, blank=True)
 
     objects = models.Manager()
 
     def __str__(self):
-        return f'{self.last_name}, {self.first_name}'
+        return f"{self.last_name}, {self.first_name}"
 
     def get_company_name(self):
         return self.department.organization.name
@@ -101,13 +107,12 @@ class Item(BaseModel):
 
     code = models.CharField(max_length=11, primary_key=True)
     name = models.CharField(max_length=36)
-    uom = models.ForeignKey('Uom', on_delete=models.CASCADE)
-    type = models.ForeignKey('ItemType', on_delete=models.CASCADE)
-    organization = models.ManyToManyField(Organization, related_name='items')
+    uom = models.ForeignKey("Uom", on_delete=models.CASCADE)
+    type = models.ForeignKey("ItemType", on_delete=models.CASCADE)
+    organization = models.ManyToManyField(Organization, related_name="items")
     slug = models.SlugField(max_length=50, default="", blank=True)
 
     objects = models.Manager()
 
     def __str__(self):
         return self.name
-

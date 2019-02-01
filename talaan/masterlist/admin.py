@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Organization, Department, Employee, DocumentType, Uom, ItemType, Item
+from .models import (
+    Organization,
+    Department,
+    Employee,
+    DocumentType,
+    Uom,
+    ItemType,
+    Item,
+)
+
 # Register your models here.
 
 admin.site.register(Organization)

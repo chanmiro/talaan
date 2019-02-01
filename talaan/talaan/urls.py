@@ -20,12 +20,12 @@ from django.views.generic import TemplateView
 urlpatterns = [
     # The hompe page is from the base template file and not to be related to any apps
     # Apps however, shall extend the base template to add its specific navigation and views
-    path('', TemplateView.as_view(template_name='base.html'), name='index'),
-    path('admin/', admin.site.urls),
-    path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
+    path("", TemplateView.as_view(template_name="base.html"), name="index"),
+    path("admin/", admin.site.urls),
+    path("about/", TemplateView.as_view(template_name="about.html"), name="about"),
 ]
 
 urlpatterns += [
-    path('masterlist/', include('masterlist.urls')),
-    path('accountable/', include('accountables.urls')),
+    path("masterlist/", include("masterlist.urls")),
+    path("accountable/", include("accountables.urls")),
 ]
